@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <v-app>
     <ShortenerHeader></ShortenerHeader>
     <ShortenerInput></ShortenerInput>
     <ShortenerList></ShortenerList>
     <ShortenerFooter></ShortenerFooter>
-  </div>
+  </v-app>
 </template>
 
 <script>
