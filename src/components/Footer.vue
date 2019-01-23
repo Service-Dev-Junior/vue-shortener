@@ -5,13 +5,13 @@
 </template>
 
 <script>
-    export default {
-        methods: {
-            clearUrl() {
-                this.$emit('removeAll');
-            }
-        }
+  export default {
+    methods: {
+      clearUrl () {
+        this.$emit('removeAll')
+      }
     }
+  }
 </script>
 
 <style scoped>

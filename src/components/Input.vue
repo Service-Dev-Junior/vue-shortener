@@ -19,7 +19,7 @@
 
 <script>
   import Modal from './common/Modal'
-  import {mapActions} from 'vuex'
+  import { mapActions } from 'vuex'
 
   export default {
     props: ['propsdata'],
@@ -36,7 +36,7 @@
       addUrl () {
         if (this.newUrlItem !== '') {
           let value = this.newUrlItem && this.newUrlItem.trim()
-          this.ADD_URL({originalUrl: value}).then(_ => this.clearInput())
+          this.ADD_URL({ originalUrl: value }).then(_ => this.clearInput())
           this.clearInput()
         } else {
           this.showModal = !this.showModal

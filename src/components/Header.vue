@@ -5,9 +5,9 @@
 </template>
 
 <script>
-    export default {
-        name: "ShortenerHeader"
-    }
+  export default {
+    name: 'ShortenerHeader'
+  }
 </script>
 
 <style scoped>

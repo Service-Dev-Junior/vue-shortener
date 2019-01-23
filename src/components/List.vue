@@ -30,7 +30,7 @@
 
 <script>
   import Modal from './common/Modal'
-  import {mapState, mapActions} from 'vuex'
+  import { mapActions, mapState } from 'vuex'
 
   export default {
     data () {
