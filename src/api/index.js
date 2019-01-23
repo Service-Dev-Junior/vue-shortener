@@ -40,7 +40,7 @@ export const url = {
       resolve()
     })
   },
-  destroy (urlItem) {
+  remove (urlItem) {
     localStorage.removeItem(urlItem.key)
     return new Promise(function (resolve, reject) {
       resolve()
@@ -48,6 +48,12 @@ export const url = {
   },
   update (id, urlItem) {
     localStorage.setItem(urlItem.value, urlItem.value)
+    return new Promise(function (resolve, reject) {
+      resolve()
+    })
+  },
+  destroy () {
+    localStorage.clear()
     return new Promise(function (resolve, reject) {
       resolve()
     })

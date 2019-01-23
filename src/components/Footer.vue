@@ -1,15 +1,17 @@
 <template>
   <div class="clearAllContainer">
-    <span class="clearAllBtn" type="button" @click="clearUrl">Clear All</span>
+    <v-btn color="warning" @click.prevent="CLEAR_URL">전부 삭제</v-btn>
   </div>
 </template>
 
 <script>
+  import { mapActions } from 'vuex'
+
   export default {
     methods: {
-      clearUrl () {
-        this.$emit('removeAll')
-      }
+      ...mapActions([
+        'CLEAR_URL'
+      ]),
     }
   }
 </script>
@@ -24,8 +26,4 @@
     margin: 0 auto;
   }
 
-  .clearAllBtn {
-    color: #e20303;
-    display: #000000;
-  }
 </style>

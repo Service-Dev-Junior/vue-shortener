@@ -15,8 +15,11 @@ const actions = {
       .then(() => dispatch('FETCH_ITEMS'))
   },
   DELETE_URL ({ dispatch, state }, { item }) {
-    console.log(item)
-    return api.url.destroy(item)
+    return api.url.remove(item)
+      .then(() => dispatch('FETCH_ITEMS'))
+  },
+  CLEAR_URL ({ dispatch, state }) {
+    return api.url.destroy()
       .then(() => dispatch('FETCH_ITEMS'))
   },
 
