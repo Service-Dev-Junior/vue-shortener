@@ -16,44 +16,48 @@ const request = {
     return axios.put(`${domain + path}`, data)
   },
 }
-var data = []
+
+function isJson (obj) {
+  var t = typeof obj
+  return ['boolean', 'number', 'string', 'symbol', 'function'].indexOf(t) == -1
+}
+
 export const url = {
   fetch () {
-    let defaultItems = []
-    for (var i = 0; i < 10; i++) {
-      defaultItems.push({
-        id: Math.random(),
-        title: `타이틀${i}`,
-        original: `원본주소${i}`,
-        short: 'temp...',
-        timeStamp: new Date().getTime(),
-      })
+    let urlItmes = []
+    if (localStorage.length > 0) {
+      for (var i = 0; i < localStorage.length; i++) {
+        urlItmes.push({
+          'key': localStorage.key(i),
+          'value': JSON.parse(localStorage.getItem(localStorage.key(i)))
+        })
+      }
     }
     return new Promise(function (resolve, reject) {
-      resolve({ list: defaultItems })
+      resolve({ list: urlItmes })
     })
   },
-  create (item) {
-    data.push(item)
+  create (id, item) {
     return new Promise(function (resolve, reject) {
+      localStorage.setItem(id, JSON.stringify(item))
       resolve()
     })
   },
   remove (urlItem) {
-    localStorage.removeItem(urlItem.key)
     return new Promise(function (resolve, reject) {
+      localStorage.removeItem(urlItem.key)
       resolve()
     })
   },
   update (id, urlItem) {
-    localStorage.setItem(urlItem.value, urlItem.value)
     return new Promise(function (resolve, reject) {
+      localStorage.setItem(urlItem.value, urlItem.value)
       resolve()
     })
   },
   destroy () {
-    localStorage.clear()
     return new Promise(function (resolve, reject) {
+      localStorage.clear()
       resolve()
     })
   },

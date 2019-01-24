@@ -1,95 +1,88 @@
 <template>
-    <div class="modal-mask">
-      <div class="modal-wrapper">
-        <div class="modal-container">
-
-          <div class="modal-header">
-            <slot name="header">
-              default header
-            </slot>
-          </div>
-
-          <div class="modal-body">
-            <slot name="body">
-              default body
-            </slot>
-          </div>
-
-          <div class="modal-footer">
-            <slot name="footer">
-              default footer
-              <button class="modal-default-button" @click="$emit('close')">
-                OK
-              </button>
-            </slot>
-          </div>
-        </div>
-      </div>
-    </div>
+  <v-layout row justify-center>
+    <v-dialog v-model="showModal" persistent max-width="400px">
+      <v-card>
+        <v-card-title>
+          <span class="headline">URL 등록하기</span>
+        </v-card-title>
+        <v-card-text>
+          <v-container grid-list-md>
+            <v-layout wrap>
+              <v-flex xs12>
+                <v-text-field
+                    v-model="newTitle"
+                    prepend-icon="place"
+                    label="타이틀"
+                    clearable
+                    counter="20"
+                    required></v-text-field>
+              </v-flex>
+              <v-flex xs12>
+                <v-text-field
+                    v-model="newUrl"
+                    prepend-icon="place"
+                    label="URL 주소"
+                    clearable
+                    required></v-text-field>
+              </v-flex>
+            </v-layout>
+          </v-container>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="blue darken-1" flat @click="SET_IS_SHOW_MODAL(!showModal)">취소</v-btn>
+          <v-btn color="blue darken-1" flat @click="register">등록</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </v-layout>
 </template>
 
+<script>
+  import { mapActions, mapMutations, mapState } from 'vuex'
+
+  export default {
+    data () {
+      return {
+        newTitle: '',
+        newUrl: '',
+      }
+    },
+    computed: {
+      ...mapState({
+        showModal: 'showModal'
+      })
+    },
+    methods: {
+      ...mapMutations([
+        'SET_IS_SHOW_MODAL'
+      ]),
+      ...mapActions([
+        'ADD_URL'
+      ]),
+      register () {
+        let newItem = {
+          title: this.newTitle && this.newTitle.trim(),
+          original: this.newUrl && this.newUrl.trim(),
+          short: 'temp...',
+          timeStamp: new Date().getTime(),
+        }
+        if (this.newTitle !== '' && this.newUrl !== '') {
+          this.ADD_URL({ id: new Date().getTime(), item: newItem }).then(_ => {
+            this.clearInput()
+          })
+        } else {
+          alert('실패...')
+        }
+      },
+      clearInput () {
+        this.newTitle = ''
+        this.newUrl = ''
+      }
+    }
+  }
+</script>
+
 <style scoped>
-  .modal-mask {
-    position: fixed;
-    z-index: 9998;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, .5);
-    display: table;
-    transition: opacity .3s ease;
-  }
 
-  .modal-wrapper {
-    display: table-cell;
-    vertical-align: middle;
-  }
-
-  .modal-container {
-    width: 300px;
-    margin: 0px auto;
-    padding: 20px 30px;
-    background-color: #fff;
-    border-radius: 2px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
-    transition: all .3s ease;
-    font-family: Helvetica, Arial, sans-serif;
-  }
-
-  .modal-header h3 {
-    margin-top: 0;
-    color: #42b983;
-  }
-
-  .modal-body {
-    margin: 20px 0;
-  }
-
-  .modal-default-button {
-    float: right;
-  }
-
-  /*
-   * The following styles are auto-applied to elements with
-   * transition="modal" when their visibility is toggled
-   * by Vue.js.
-   *
-   * You can easily play with the modal transition by editing
-   * these styles.
-   */
-
-  .modal-enter {
-    opacity: 0;
-  }
-
-  .modal-leave-active {
-    opacity: 0;
-  }
-
-  .modal-enter .modal-container,
-  .modal-leave-active .modal-container {
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
-  }
 </style>

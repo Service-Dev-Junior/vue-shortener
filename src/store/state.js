@@ -1,6 +1,6 @@
 const state = {
   showModal: false,
-  list:[],
+  list: [],
 }
 
 export default state

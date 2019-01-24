@@ -11,9 +11,9 @@
 </template>
 
 <script>
-  import NHeader from '../components/NHeader'
-  import NList from '../components/NList'
-  import NModal from '../components/NModal'
+  import NHeader from '../components/layouts/Header'
+  import NList from '../components/ItemList'
+  import NModal from '../components/common/Modal'
   import { mapActions } from 'vuex'
 
   export default {

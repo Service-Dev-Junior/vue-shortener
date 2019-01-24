@@ -6,10 +6,12 @@ const actions = {
       commit('SET_ITEMS', data.list)
     })
   },
-  ADD_URL ({ dispatch, state, commit }, { item }) {
-    return api.url.create(item)
-      .then(_ => commit('SET_IS_SHOW_MODAL', false))
-      .then(_ => dispatch('FETCH_ITEMS'))
+  ADD_URL ({ dispatch, state, commit }, { id, item }) {
+    return api.url.create(id, item)
+      .then(_ => {
+        commit('SET_IS_SHOW_MODAL', false)
+        dispatch('FETCH_ITEMS')
+      })
   },
   UPDATE_URL ({ dispatch, state }, { id, title }) {
     return api.url.update(id, { id, title: newTitle })
@@ -23,7 +25,6 @@ const actions = {
     return api.url.destroy()
       .then(() => dispatch('FETCH_ITEMS'))
   },
-
 }
 
 export default actions

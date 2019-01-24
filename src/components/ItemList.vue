@@ -2,18 +2,18 @@
   <v-list two-line>
     <template v-for="(item, index) in list">
       <v-list-tile
-          :key="item.id"
+          :key="item.value.id"
           avatar
           ripple
-          @click="toggle(index)"
+          @click=""
       >
         <v-list-tile-content>
-          <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-          <v-list-tile-sub-title>{{ item.original }}</v-list-tile-sub-title>
+          <v-list-tile-title>{{ item.value.title }}</v-list-tile-title>
+          <v-list-tile-sub-title>{{ item.value.original }}</v-list-tile-sub-title>
         </v-list-tile-content>
 
         <v-list-tile-action>
-          <v-list-tile-action-text>{{ item.timeStamp }}</v-list-tile-action-text>
+          <v-list-tile-action-text>{{ item.value.timeStamp }}</v-list-tile-action-text>
           <v-icon color="yellow darken-2">
             delete
           </v-icon>

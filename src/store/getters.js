@@ -1,7 +1,3 @@
-const getters = {
-  all (state) {
-    return state.urlItems
-  },
-}
+const getters = {}
 
 export default getters

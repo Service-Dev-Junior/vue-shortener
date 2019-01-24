@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Shotener from './views/Shotener.vue'
-import NShortener from './views/NShortener.vue'
+import Shortener from './views/Shortener.vue'
 
 Vue.use(Router)
 
@@ -10,7 +9,7 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: NShortener
+      component: Shortener
     },
   ]
 })
