@@ -1,6 +1,9 @@
 const mutations = {
   SET_ITEMS (state, items) {
-    state.urlItems = items
+    state.list = items
+  },
+  SET_IS_SHOW_MODAL (state, toggle) {
+    state.showModal = toggle
   },
 }
 

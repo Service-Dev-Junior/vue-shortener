@@ -1,9 +1,16 @@
 <template>
   <v-app>
-    <ShortenerHeader></ShortenerHeader>
-    <ShortenerInput></ShortenerInput>
-    <ShortenerList></ShortenerList>
-    <ShortenerFooter></ShortenerFooter>
+    <div>
+      <v-card>
+        <test></test>
+        <v-responsive :aspect-ratio="16/9">
+          <ShortenerHeader></ShortenerHeader>
+          <ShortenerInput></ShortenerInput>
+          <ShortenerList></ShortenerList>
+          <ShortenerFooter></ShortenerFooter>
+        </v-responsive>
+      </v-card>
+    </div>
   </v-app>
 </template>
 
@@ -12,7 +19,8 @@
   import ShortenerInput from './../components/Input'
   import ShortenerList from './../components/List'
   import ShortenerFooter from './../components/Footer'
-  import { mapState, mapActions } from 'vuex'
+  import test from './NShortener'
+  import { mapActions, mapState } from 'vuex'
 
   export default {
     data () {
@@ -36,6 +44,7 @@
       'ShortenerInput': ShortenerInput,
       'ShortenerList': ShortenerList,
       'ShortenerFooter': ShortenerFooter,
+      'test': test,
     }
   }
 </script>

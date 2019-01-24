@@ -1,5 +1,6 @@
 const state = {
-  urlItems: []
+  showModal: false,
+  list:[],
 }
 
 export default state

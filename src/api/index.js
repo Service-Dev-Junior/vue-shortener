@@ -16,26 +16,25 @@ const request = {
     return axios.put(`${domain + path}`, data)
   },
 }
-
+var data = []
 export const url = {
   fetch () {
-    let urlItmes = []
-    if (localStorage.length > 0) {
-      for (var i = 0; i < localStorage.length; i++) {
-        urlItmes.push({
-          'key': localStorage.key(i),
-          'value': localStorage.getItem(localStorage.key(i))
-        })
-      }
+    let defaultItems = []
+    for (var i = 0; i < 10; i++) {
+      defaultItems.push({
+        id: Math.random(),
+        title: `타이틀${i}`,
+        original: `원본주소${i}`,
+        short: 'temp...',
+        timeStamp: new Date().getTime(),
+      })
     }
     return new Promise(function (resolve, reject) {
-      resolve({ list: urlItmes })
+      resolve({ list: defaultItems })
     })
   },
-  create (urlItem) {
-    // 로컬 스토리지에 추가하는 로직
-    let timestamp = new Date().getTime()
-    localStorage.setItem(timestamp, urlItem)
+  create (item) {
+    data.push(item)
     return new Promise(function (resolve, reject) {
       resolve()
     })
