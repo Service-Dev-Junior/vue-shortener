@@ -1,4 +1,5 @@
 /src/config
+/src/settings.php
 /vendor/
 /logs/*
 !/logs/README.md
