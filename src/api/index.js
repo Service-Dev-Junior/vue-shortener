@@ -1,28 +1,27 @@
 import axios from 'axios'
 
-const domain = 'http://localhost:3000'
+const devDomain = 'http://localhost'
+const proDomain = 'http://wodn4131.cafe24.com/api/public/'
 
 const request = {
   get (path) {
-    return axios.get(`${domain + path}`)
+    return axios.get(`${proDomain + path}`)
   },
   post (path, data) {
-    return axios.post(`${domain + path}`, data)
+    return axios.post(`${proDomain + path}`, data)
   },
   delete (path) {
-    return axios.delete(`${domain + path}`)
+    return axios.delete(`${proDomain + path}`)
   },
   put (path, data) {
-    return axios.put(`${domain + path}`, data)
+    return axios.put(`${proDomain + path}`, data)
   },
-}
-
-function isJson (obj) {
-  var t = typeof obj
-  return ['boolean', 'number', 'string', 'symbol', 'function'].indexOf(t) == -1
 }
 
 export const url = {
+  test () {
+    return request.post('shorten', {'url': 'asdasd'})
+  },
   fetch () {
     let urlItmes = []
     if (localStorage.length > 0) {

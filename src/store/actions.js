@@ -1,6 +1,11 @@
 import * as api from '../api'
 
 const actions = {
+  TEST_API ({ commit }) {
+    return api.url.test().then(data => {
+
+    })
+  },
   FETCH_ITEMS ({ commit }) {
     return api.url.fetch().then(data => {
       commit('SET_ITEMS', data.list)
