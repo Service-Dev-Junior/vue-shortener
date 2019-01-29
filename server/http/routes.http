@@ -6,9 +6,13 @@ POST http://wodn4131.cafe24.com/api/public/shortener
 Content-Type: application/json
 
 {
-  "url": "asda"
+  "title": "asda",
+  "longUrl": "http://www.slimframework.com/docs/v3/handlers/error.html"
 }
 
 ### URL 삭제
-DELETE
+DELETE http://wodn4131.cafe24.com/api/public/shortener/1
+
+
+###
 
