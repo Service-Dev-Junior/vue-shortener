@@ -6,6 +6,7 @@ use Slim\Http\Response;
 // 저장된 리스트 모두 조회
 $app->get('/shorteners', function (Request $request, Response $response, array $args) {
 
+    return $response->withStatus(300)->withJson(['test' =>'test']);
 });
 
 // URL 변환 및 저장

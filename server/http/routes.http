@@ -1,0 +1,14 @@
+### 리스트 조회
+GET http://wodn4131.cafe24.com/api/public/shorteners
+
+### URL 변환 및 저장
+POST http://wodn4131.cafe24.com/api/public/shortener
+Content-Type: application/json
+
+{
+  "url": "asda"
+}
+
+### URL 삭제
+DELETE
+
