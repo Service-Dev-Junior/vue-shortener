@@ -7,7 +7,7 @@ Content-Type: application/json
 
 {
   "title": "asda",
-  "longUrl": "http://www.slimframework.com/docs/v3/handlers/error.html"
+  "longUrl": "https://stackoverflow.com/questions/883365/row-count-with-pdo"
 }
 
 ### URL 삭제
