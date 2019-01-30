@@ -61,19 +61,16 @@
         'ADD_URL'
       ]),
       register () {
+        if (this.newTitle === '' && this.newUrl === '') return
+
         let newItem = {
           title: this.newTitle && this.newTitle.trim(),
-          original: this.newUrl && this.newUrl.trim(),
-          short: 'temp...',
-          timeStamp: new Date().getTime(),
+          url: this.newUrl && this.newUrl.trim(),
         }
-        if (this.newTitle !== '' && this.newUrl !== '') {
-          this.ADD_URL({ id: new Date().getTime(), item: newItem }).then(_ => {
-            this.clearInput()
-          })
-        } else {
-          alert('실패...')
-        }
+
+        this.ADD_URL(newItem).then(_ => {
+          this.clearInput()
+        })
       },
       clearInput () {
         this.newTitle = ''

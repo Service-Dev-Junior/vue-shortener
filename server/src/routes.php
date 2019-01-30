@@ -30,12 +30,11 @@ $app->get('/shorteners', function (Request $request, Response $response, array $
 );
 
 // URL 변환 및 저장
-$app->post('/shortener', function (Request $request, Response $response, array $args) {
+$app->post('/shorteners', function (Request $request, Response $response, array $args) {
     try {
-        $_title   = $request->getParsedBodyParam('title');
-        $_longUrl = $request->getParsedBodyParam('longUrl');
+        $_params = $request->getParsedBody();
 
-        if (empty($_title) || empty($_longUrl)) {
+        if (empty($_params['title']) || empty($_params['url'])) {
             throw new Exception('요청값이 올바르지 않습니다.');
         }
 
@@ -44,7 +43,7 @@ $app->post('/shortener', function (Request $request, Response $response, array $
             'GET',
             'https://api-ssl.bitly.com/v3/shorten', [
                 'query'  => [
-                    'longUrl'      => $_longUrl,
+                    'longUrl'      => $_params['url'],
                     'access_token' => BITLY_ACCESS_TOKEN,
                 ],
                 'verify' => false,
@@ -59,8 +58,14 @@ $app->post('/shortener', function (Request $request, Response $response, array $
         $_arr_body = json_decode($_body);
 
         if ((int)$_arr_body->status_code !== SUCCESS_CODE) {
-            throw new Exception("[{$_arr_body['status_code']}]{$_arr_body['status_txt']}");
+            throw new Exception("[{$_arr_body->status_code}]{$_arr_body->status_txt}");
         }
+
+        $sth = $this->db->prepare("INSERT INTO shortener (title, long_url, short_url) VALUES (:title, :l_url, :s_url)");
+        $sth->bindParam("title", $_params['title']);
+        $sth->bindParam("l_url", $_arr_body->data->long_url);
+        $sth->bindParam("s_url", $_arr_body->data->url);
+        $sth->execute();
 
         return $response->withJson([
                 'result'  => RESPONSE_SUCCESS,

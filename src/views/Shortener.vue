@@ -23,13 +23,11 @@
       NModal,
     },
     created () {
-      //this.FETCH_ITEMS()
-      this.TEST_API()
+      this.FETCH_ITEMS()
     },
     methods: {
       ...mapActions([
         'FETCH_ITEMS',
-        'TEST_API',
       ]),
     },
   }

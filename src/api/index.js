@@ -1,6 +1,5 @@
 import axios from 'axios'
 
-const devDomain = 'http://localhost'
 const proDomain = 'http://wodn4131.cafe24.com/api/public/'
 
 const request = {
@@ -19,45 +18,13 @@ const request = {
 }
 
 export const url = {
-  test () {
-    return request.post('shorten', {'url': 'asdasd'})
-  },
   fetch () {
-    let urlItmes = []
-    if (localStorage.length > 0) {
-      for (var i = 0; i < localStorage.length; i++) {
-        urlItmes.push({
-          'key': localStorage.key(i),
-          'value': JSON.parse(localStorage.getItem(localStorage.key(i)))
-        })
-      }
-    }
-    return new Promise(function (resolve, reject) {
-      resolve({ list: urlItmes })
-    })
+    return request.get('shorteners').then(({ data }) => data)
   },
-  create (id, item) {
-    return new Promise(function (resolve, reject) {
-      localStorage.setItem(id, JSON.stringify(item))
-      resolve()
-    })
+  create (title, url) {
+    return request.post('shorteners', { title, url }).then(({ data }) => data)
   },
-  remove (urlItem) {
-    return new Promise(function (resolve, reject) {
-      localStorage.removeItem(urlItem.key)
-      resolve()
-    })
-  },
-  update (id, urlItem) {
-    return new Promise(function (resolve, reject) {
-      localStorage.setItem(urlItem.value, urlItem.value)
-      resolve()
-    })
-  },
-  destroy () {
-    return new Promise(function (resolve, reject) {
-      localStorage.clear()
-      resolve()
-    })
+  remove (id) {
+    return request.delete(`shortener/${id}`)
   },
 }
