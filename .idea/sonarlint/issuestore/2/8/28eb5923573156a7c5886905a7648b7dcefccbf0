@@ -1,0 +1,12 @@
+
+G	php:S1172"-Remove the unused function parameter "$args".(åÓäÙüÿÿÿÿ
+\	php:S1192"GDefine a constant instead of duplicating this literal "result" 6 times.(òÚ í
+[	php:S1192%"FDefine a constant instead of duplicating this literal "title" 3 times.(Ç®Ó—
+Zphp:S112c"FDefine and throw a dedicated exception instead of using a generic one.(œ…è–
+B	php:S1172!"-Remove the unused function parameter "$args".(ƒßŒï
+_php:S1126"FDefine and throw a dedicated exception instead of using a generic one.(ä§‚Éşÿÿÿÿ
+J	php:S1172\"0Remove the unused function parameter "$request".(ƒ½İÄúÿÿÿÿ
+_php:S112&"FDefine and throw a dedicated exception instead of using a generic one.(Œí·‡şÿÿÿÿ
+J	php:S1172"0Remove the unused function parameter "$request".(åÓäÙüÿÿÿÿ
+Zphp:S112="FDefine and throw a dedicated exception instead of using a generic one.(Ï•ë
+\	php:S1192"HDefine a constant instead of duplicating this literal "message" 5 times.(Ü”‡P

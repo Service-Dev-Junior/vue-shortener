@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="4551602d-9abe-4c88-a46d-8fec17bbf43a" name="cafe24" url="http://wodn4131.cafe24.com">
+        <fileTransfer host="wodn4131.cafe24.com" port="22" rootFolder="/wodn4131/www" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
