@@ -1,29 +1,32 @@
 <template>
-  <!--<v-layout row>
-    <v-flex xs12 sm6 offset-sm3>
-      <v-card>
-        <NHeader></NHeader>
-        <NList></NList>
-        <NModal></NModal>
-      </v-card>
-    </v-flex>
-  </v-layout>-->
-  <v-app>
-    <div style="width:100vw; height:100vh; background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);">
-      <Title></Title>
-      <Card></Card>
-    </div>
+  <v-app id="inspire">
+    <v-content style="width:100vw; height:100vh; background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);">
+      <v-container fluid fill-height>
+        <v-layout justify-center>
+          <v-flex xs12 sm8>
+            <Header></Header>
+            <Title></Title>
+            <Progress></Progress>
+            <Form></Form>
+          </v-flex>
+        </v-layout>
+      </v-container>
+    </v-content>
   </v-app>
 </template>
 
 <script>
-  import Card from '../components/Card'
+  import Header from '../components/Header'
+  import Form from '../components/Form'
   import Title from '../components/Title'
+  import Progress from '../components/Progress'
 
   export default {
     components: {
-      Card,
-      Title
+      Progress,
+      Header,
+      Form,
+      Title,
     },
     created () {
     },
