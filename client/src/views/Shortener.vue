@@ -12,6 +12,7 @@
         </v-layout>
       </v-container>
     </v-content>
+    <Snackbar></Snackbar>
   </v-app>
 </template>
 
@@ -19,10 +20,12 @@
   import Header from '../components/Header'
   import Form from '../components/Form'
   import Title from '../components/Title'
-  import Progress from '../components/Progress'
+  import Progress from '../components/Alert'
+  import Snackbar from '../components/Snackbar'
 
   export default {
     components: {
+      Snackbar,
       Progress,
       Header,
       Form,

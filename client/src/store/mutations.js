@@ -1,9 +1,12 @@
 const mutations = {
-  SET_ITEMS (state, items) {
-    state.list = items
+  SET_IS_SHOW_SNACKBER (state, { toggle, message }) {
+    state.isShowSnackbar = toggle
+    state.snackbarMessage = message
   },
-  SET_IS_SHOW_MODAL (state, toggle) {
-    state.showModal = toggle
+  SET_IS_SHOW_ALERT (state, { toggle, type, message }) {
+    state.isShowAlert = toggle
+    state.alertMessage = message
+    state.alertType = type
   },
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-bottom: 300px">
+  <div style="margin-bottom: 200px">
     <div class="white--text headline" style="width: 500px; float:left; display: inline-block">TEMPLE URL Shortener</div>
 
     <div style="display: inline-block; float: right">

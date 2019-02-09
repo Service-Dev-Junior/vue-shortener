@@ -1,6 +1,9 @@
 const state = {
-  showModal: false,
-  list: [],
+  isShowSnackbar: false,
+  snackbarMessage: '',
+  isShowAlert: false,
+  alertMessage: '',
+  alertType: '',
 }
 
 export default state
