@@ -1,34 +1,38 @@
 <template>
-  <v-layout row>
-    <v-flex xs12 sm6 offset-sm3>
-      <v-card>
-        <NHeader></NHeader>
-        <NList></NList>
-        <NModal></NModal>
-      </v-card>
-    </v-flex>
-  </v-layout>
+  <v-app id="inspire">
+    <v-content style="width:100vw; height:100vh; background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);">
+      <v-container fluid fill-height>
+        <v-layout justify-center>
+          <v-flex xs12 sm8>
+            <Header></Header>
+            <Title></Title>
+            <Progress></Progress>
+            <Form></Form>
+          </v-flex>
+        </v-layout>
+      </v-container>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
-  import NHeader from '../components/layouts/Header'
-  import NList from '../components/ItemList'
-  import NModal from '../components/common/Modal'
-  import { mapActions } from 'vuex'
+  import Header from '../components/Header'
+  import Form from '../components/Form'
+  import Title from '../components/Title'
+  import Progress from '../components/Progress'
 
   export default {
     components: {
-      NList,
-      NHeader,
-      NModal,
+      Progress,
+      Header,
+      Form,
+      Title,
     },
     created () {
-      this.FETCH_ITEMS()
     },
-    methods: {
-      ...mapActions([
-        'FETCH_ITEMS',
-      ]),
-    },
+    methods: {},
   }
 </script>
+
+<style scoped>
+</style>
