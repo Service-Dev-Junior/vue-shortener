@@ -18,13 +18,7 @@ const request = {
 }
 
 export const url = {
-  fetch () {
-    return request.get('shorteners').then(({ data }) => data)
-  },
-  create (title, url) {
-    return request.post('shorteners', { title, url }).then(({ data }) => data)
-  },
-  remove (id) {
-    return request.delete(`shortener/${id}`)
+  create (url) {
+    return request.post('shorteners', { url }).then(({ data }) => data)
   },
 }

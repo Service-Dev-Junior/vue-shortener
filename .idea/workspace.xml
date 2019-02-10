@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b7c86b50-df53-4175-991c-c2722efc8f52" name="Default Changelist" comment="" />
+    <list default="true" id="b7c86b50-df53-4175-991c-c2722efc8f52" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/client/src/components/Form.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/Progress.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Card.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Header.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ItemList.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Title.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Title.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/common/Modal.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/layouts/Header.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/views/Shortener.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Shortener.vue" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,17 +230,18 @@
       <workItem from="1549170488693" duration="104000" />
       <workItem from="1549364753444" duration="563000" />
       <workItem from="1549461800009" duration="4940000" />
-      <workItem from="1549549083793" duration="4051000" />
+      <workItem from="1549549083793" duration="3812000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12476000" />
+    <option name="totallyTimeSpent" value="12237000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="2560" height="1047" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1876" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1876" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -243,9 +256,9 @@
       <window_info anchor="bottom" id="SonarLint" order="8" />
       <window_info anchor="bottom" id="File Transfer" order="9" weight="0.35900217" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.33077765" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.33077765" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="13" weight="0.32858709" />
+      <window_info anchor="bottom" id="Version Control" order="13" weight="0.3286334" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
