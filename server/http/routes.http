@@ -2,12 +2,11 @@
 GET http://wodn4131.cafe24.com/api/public/shorteners
 
 ### URL 변환 및 저장
-POST http://wodn4131.cafe24.com/api/public/shorteners
+POST http://wodn4131.cafe24.com/api/public/shortener
 Content-Type: application/json
 
 {
-  "title": "asda",
-  "url": "https://stackoverflow.com/questions/883365/row-count-with-pdo"
+  "url": "www.naver.com"
 }
 
 ### URL 삭제

@@ -3,39 +3,17 @@
 use Slim\Http\Request;
 use Slim\Http\Response;
 
-// 저장된 리스트 모두 조회
-$app->get('/shorteners', function (Request $request, Response $response, array $args) {
-    try {
-        $_sth = $this->db->prepare("SELECT * FROM shortener ORDER BY id DESC");
-        $_sth->execute();
-        $_results = $_sth->fetchAll();
-
-        return $response->withJson([
-                'result' => RESPONSE_SUCCESS,
-                'data'   => [
-                    'list' => $_results
-                ],
-            ]
-        );
-
-    } catch (Exception $e) {
-        $this->logger->error($e->getMessage());
-        return $response->withJson([
-                'result'  => RESPONSE_FAIL,
-                'message' => '리스트 조회에 실패하였습니다.',
-            ]
-        );
-    }
-}
-);
-
 // URL 변환 및 저장
-$app->post('/shorteners', function (Request $request, Response $response, array $args) {
+$app->post('/shortener', function (Request $request, Response $response, array $args) {
     try {
         $_params = $request->getParsedBody();
-
-        if (empty($_params['title']) || empty($_params['url'])) {
+        $_longUrl = $_params['url'];
+        if (empty($_longUrl)) {
             throw new Exception('요청값이 올바르지 않습니다.');
+        }
+
+        if (!preg_match('/^(http(s)?:\/\/)/', $_longUrl)) {
+            $_longUrl = "http://{$_longUrl}";
         }
 
         $_client   = new \GuzzleHttp\Client();
@@ -43,7 +21,7 @@ $app->post('/shorteners', function (Request $request, Response $response, array 
             'GET',
             'https://api-ssl.bitly.com/v3/shorten', [
                 'query'  => [
-                    'longUrl'      => $_params['url'],
+                    'longUrl'      => $_longUrl,
                     'access_token' => BITLY_ACCESS_TOKEN,
                 ],
                 'verify' => false,
@@ -61,17 +39,11 @@ $app->post('/shorteners', function (Request $request, Response $response, array 
             throw new Exception("[{$_arr_body->status_code}]{$_arr_body->status_txt}");
         }
 
-        $sth = $this->db->prepare("INSERT INTO shortener (title, long_url, short_url) VALUES (:title, :l_url, :s_url)");
-        $sth->bindParam("title", $_params['title']);
-        $sth->bindParam("l_url", $_arr_body->data->long_url);
-        $sth->bindParam("s_url", $_arr_body->data->url);
-        $sth->execute();
-
         return $response->withJson([
-                'result'  => RESPONSE_SUCCESS,
-                'message' => '정상적으로 등록되었습니다.',
+                'code' => $_arr_body->status_code,
+                'message' => $_arr_body->status_txt,
                 'data'    => [
-                    'longUrl'  => $_arr_body->data->long_url,
+                    'longUrl'  => $_longUrl,
                     'shortUrl' => $_arr_body->data->url,
                 ],
             ]
@@ -80,38 +52,8 @@ $app->post('/shorteners', function (Request $request, Response $response, array 
     } catch (Exception $e) {
         $this->logger->error($e->getMessage());
         return $response->withJson([
-                'result'  => RESPONSE_FAIL,
-                'message' => $e->getMessage(),
-            ]
-        );
-    }
-}
-);
-
-// 삭제
-$app->delete('/shortener/[{id}]', function (Request $request, Response $response, array $args) {
-    try {
-        $sth = $this->db->prepare("DELETE FROM shortener WHERE id=:id");
-        $sth->bindParam("id", $args['id']);
-        $sth->execute();
-
-        if ($sth->rowCount() === 0) {
-            throw new Exception('NOT_EXIST_ID');
-        }
-
-        return $response->withJson([
-                'result'  => RESPONSE_SUCCESS,
-                'message' => '정상적으로 삭제되었습니다.',
-                'data'    => [
-                    'id' => $args['id']
-                ]
-            ]
-        );
-    } catch (Exception $e) {
-        $this->logger->error($e->getMessage());
-        return $response->withJson([
-                'result'  => RESPONSE_FAIL,
-                'message' => '존재하지 않는 ID입니다.',
+                'code' => $_arr_body->status_code,
+                'message' => $_arr_body->status_txt,
             ]
         );
     }

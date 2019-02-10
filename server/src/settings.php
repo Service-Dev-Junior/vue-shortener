@@ -18,13 +18,5 @@ return [
                 : __DIR__ . '/../logs/app.log',
             'level' => \Monolog\Logger::DEBUG,
         ],
-
-        // mysql 셋팅
-        "db"                                => [
-            "host"   => "localhost",
-            "dbname" => "wodn4131",
-            "user"   => "wodn4131",
-            "pass"   => "wogud00."
-        ],
     ]
 ];
