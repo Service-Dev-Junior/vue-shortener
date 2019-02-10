@@ -2,7 +2,6 @@
     <v-snackbar
             v-model="isShow"
             :bottom="true"
-            :timeout="6000"
     >
         {{message}}
         <v-btn

@@ -3,7 +3,7 @@
     <v-content style="width:100vw; height:100vh; background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);">
       <v-container fluid fill-height>
         <v-layout justify-center>
-          <v-flex xs12 sm8>
+          <v-flex xs12 sm6>
             <Header></Header>
             <Title></Title>
             <Progress></Progress>

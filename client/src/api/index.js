@@ -19,6 +19,6 @@ const request = {
 
 export const url = {
   create (url) {
-    return request.post('shorteners', { url }).then(({ data }) => data)
+    return request.post('shortener', { url }).then(({ data }) => data)
   },
 }

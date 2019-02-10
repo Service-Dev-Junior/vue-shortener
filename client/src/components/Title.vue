@@ -1,6 +1,6 @@
 <template>
   <div style="margin-bottom: 30px">
-      <h1 class="display-2" style="text-align: center; color: white">URL Shortener</h1>
+      <h1 class="display-1" style="text-align: center; color: white">URL Shortener</h1>
   </div>
 </template>
 

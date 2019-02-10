@@ -1,6 +1,11 @@
 <template>
   <div style="margin-bottom: 200px">
-    <div class="white--text headline" style="width: 500px; float:left; display: inline-block">TEMPLE URL Shortener</div>
+    <div
+        class="white--text headline"
+        style="width: 500px; float:left; display: inline-block; cursor: pointer"
+        @click.prevent="onClick"
+    >TEMPLE URL Shortener
+    </div>
 
     <div style="display: inline-block; float: right">
       <div class="text-xs-center">
@@ -12,7 +17,12 @@
 
 <script>
   export default {
-    name: 'Header'
+    name: 'Header',
+    methods: {
+      onClick() {
+        location.href = 'http://wodn4131.cafe24.com/shortener/index.html#/'
+      }
+    }
   }
 </script>
 
